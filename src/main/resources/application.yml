@@ -1,0 +1,41 @@
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+
+server:
+  port: 8083
+  servlet:
+    context-path: /techgeeknext
+    session:
+      cookie:
+        path: /techgeeknext
+  ssl:
+    key-store-password: techgeeknext123
+    key-store: classpath:securitykeystore.p12
+    key-store-type: PKCS12
+    key-alias: techgeeknext-alias
+
+
+
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 577562403106-87f3jejmddqoqod1bobg0komj3ttlt3c.apps.googleusercontent.com
+            client-secret: LOLlu3kbvbAF68t
+            scope: profile,email
+            client-name: TechGeekNextOAuthWebClient
+  datasource:
+    url: jdbc:mysql://localhost/SecuritySchema?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    platform: mysql
+    initialization-mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
